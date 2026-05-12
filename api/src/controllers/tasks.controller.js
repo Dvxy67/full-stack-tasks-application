@@ -1,13 +1,11 @@
-const tasks = [
-  { id: 1, title: "Task 1", description: "Description 1", status: "pending" },
-  { id: 2, title: "Task 2", description: "Description 2", status: "pending" },
-  { id: 3, title: "Task 3", description: "Description 3", status: "pending" },
-];
+import { prisma } from '../db.js';
 
-export const getTaskById = (req, res, next) => {
-  const { id } = req.params;
+// GET all
+// jutilise le truxc de prisma prisma.task.FinUnique()
 
-  const task = tasks.find((task) => task.id === parseInt(id));
+export const getTask = (req, res, next) => {
+
+  const task = await prisma.task.FindUnique();
 
   if (!task) {
     return res.status(404).json({ message: "Task not found" }).end();
