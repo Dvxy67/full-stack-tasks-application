@@ -1,0 +1,10 @@
+import express from "express";
+import { tasksRouter } from "./routes/tasks.routes.js";
+
+const app = express();
+
+app.use("/tasks", tasksRouter);
+
+app.listen(3000, () => {
+  console.log("Server is running on port 3000");
+});
