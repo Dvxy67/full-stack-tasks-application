@@ -1,42 +1,107 @@
-#root {
-  max-width: 1280px;
+:root {
+  --bg: #f7f4ef;
+  --ink: #111;
+  --accent: #c0392b;
+  --muted: #999;
+  --border: #ddd;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: 'Syne', sans-serif;
+  padding: 60px 40px;
+  min-height: 100vh;
+}
+
+/* --- HEADER --- */
+.header {
+  max-width: 700px;
+  margin: 0 auto 70px auto;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 20px;
+}
+
+.header-label {
+  font-family: 'Syne', sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(64px, 10vw, 110px);
+  font-weight: 300;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+}
+
+h1 em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+/* --- TASK LIST --- */
+ul {
+  list-style: none;
+  max-width: 700px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+li {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 0 24px;
+  align-items: start;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--border);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.task-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--border);
+  padding-top: 2px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.task-content h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 6px;
 }
 
-.card {
-  padding: 2em;
+.task-content p {
+  font-family: 'Syne', sans-serif;
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+  line-height: 1.6;
 }
 
-.read-the-docs {
-  color: #888;
+/* --- STATES --- */
+.state {
+  max-width: 700px;
+  margin: 0 auto;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-style: italic;
+  color: var(--muted);
+}
+
+.state.error {
+  color: var(--accent);
 }
